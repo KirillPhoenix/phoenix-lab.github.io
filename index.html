@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" onerror="console.error('Стиль не найден')">
+</head>
+<body>
+    <canvas id="matrix-rain"></canvas>
+
+    <div class="preloader">
+        <div class="preloader-background"></div>
+        <div class="preloader-content">
+            <img src="media/logo.png" alt="Phoenix Lab" class="preloader-logo">
+        </div>
+        <div class="sparks"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-logo-container">
+                <svg class="header-logo" width="260" height="260" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="#ff6f61">
+                    <style>
+                        .glitch path {
+                            animation: glitch 1.2s infinite;
+                        }
+                        @keyframes glitch {
+                            0%   { transform: translate(0, 0); fill: #ff6f61; }
+                            20%  { transform: translate(-1px, 1px); fill: #ff3c3c; }
+                            40%  { transform: translate(1px, -1px); fill: #ffa500; }
+                            60%  { transform: translate(-1px, 0); fill: #ff6f61; }
+                            80%  { transform: translate(1px, 1px); fill: #ffd700; }
+                            100% { transform: translate(0, 0); fill: #ff6f61; }
+                        }
+                    </style>
+                    <g class="glitch" transform="scale(1.5)">
+                        <!-- Буква P -->
+                        <path d="M40 40 H80 A20 20 0 0 1 80 80 H60 V100 H40 Z" />
+                        <!-- Буква L -->
+                        <path d="M100 40 H120 V120 H160 V140 H100 Z" />
+                    </g>
+                </svg>
+                <h1 class="header-title" data-text="PHOENIX LAB">PHOENIX LAB</h1>
+            </div>
+            <p>Создатель ботов и веб-проектов</p>
+            <a href="#projects">К проектам</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>Обо мне</h2>
+        <div class="container">
+            <p>Привет! Я Кирилл, разработчик Telegram-ботов и веб-проектов. Занимаюсь автоматизацией задач и оптимизацией процессов — люблю, когда всё работает быстро и чётко.</p>
+            <p>Мой стек: Python, Telegram API (aiogram, pyTelegramBotAPI), HTML, CSS, JS. Разбираюсь в UX, делаю удобные и понятные интерфейсы.</p>
+            <p>Создавал боты для администрирования, игр, статистики, а также сайты-презентации. Сейчас работаю над бот-менеджером с фильтрацией, системой иммунитетов и модулями. Открыт к новым идеям и коллаборациям!</p>
+            <div class="stats">
+                <div><span>2</span> года опыта</div>
+                <div><span>3</span> проекта <br> и множество скриптов</div>
+                <div><span>10k+</span> пользователей в боте</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Мои проекты</h2>
+            <div class="projects-grid">
+                <div class="service-card">
+                    <img src="media/site.jpg" alt="Лендинг" class="project-image">
+                    <h3>Лендинг. Продвижение услуг</h3>
+                    <p>Лендинг услуг по электрике.</p>
+                    <a href="https://kirillphoenix.github.io/triogen.github.io/" target="_blank">Посмотреть</a>
+                </div>
+                <div class="service-card">
+                    <img src="media/bot.jpg" alt="Бот-менеджер" class="project-image">
+                    <h3>Бот-менеджер</h3>
+                    <p>Многофункциональный бот. Модерирует беседы, ведёт статистику, также имеет развлекательные команды</p>
+                    <a href="https://vk.com/alyacm" target="_blank">Запустить бота</a>
+                </div>
+                <div class="service-card">
+                    <img src="media/parser.jpg" alt="Парсер цен" class="project-image">
+                    <h3>Парсер цен</h3>
+                    <p>Извлекает цены с Wildberries, AliExpress и Ozon. Использует aiohttp и Playwright для обхода капчи и сохранения сессий.</p>
+                    <a href="https://github.com/KirillPhoenix/market-parser" target="_blank">Посмотреть на GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2>Отзывы</h2>
+        <div class="container">
+            <div class="review">
+                <p>"Кирилл создал для нас отличный лендинг! Быстро, качественно, но пришлось немного подождать из-за его загруженности."</p>
+                <span>— Клиент 1</span>
+            </div>
+            <div class="review">
+                <p>"Бот-менеджер просто спас нашу беседу в Telegram. Теперь всё под контролем, спасибо!"</p>
+                <span>— Клиент 2</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Контакты</h2>
+        <p><a href="mailto:kirillphoenix1984@gmail.com">kirillphoenix1984@gmail.com</a></p>
+        <div>
+            <a href="https://t.me/KirillPhoenix">Telegram</a>
+            <a href="https://github.com/KirillPhoenix">GitHub</a>
+        </div>
+    </footer>
+
+    <script src="script.js" onerror="console.error('Скрипт не найден')"></script>
+</body>
+</html>

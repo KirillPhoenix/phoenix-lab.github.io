@@ -1,0 +1,389 @@
+/* =================== */
+/* Общие базовые стили */
+/* =================== */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: #1a1a2e;
+    margin: 0;
+    color: #e5e5e5;
+    position: relative;
+}
+
+/* Цифровой дождь на фоне */
+#matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: #1a1a2e;
+}
+
+/* =================== */
+/* Прелоадер           */
+/* =================== */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.preloader-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #030316;
+    z-index: -1;
+}
+
+.preloader-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.preloader-logo {
+    width: auto;
+    height: 60vh;
+    animation: pulse 2s infinite;
+    mask-image: linear-gradient(to top, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* =================== */
+/* Эффекты искр       */
+/* =================== */
+.sparks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.spark {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ff9f45;
+    border-radius: 50%;
+    animation: sparkAnimation 1.5s infinite;
+}
+
+.spark:nth-child(2n) { animation-delay: 0.3s; }
+.spark:nth-child(3n) { animation-delay: 0.6s; }
+
+@keyframes sparkAnimation {
+    0%   { transform: translate(0, 0) scale(1); opacity: 0.8; }
+    50%  { transform: translate(20px, -20px) scale(1.5); opacity: 1; }
+    100% { transform: translate(40px, -40px) scale(0); opacity: 0; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.05); }
+}
+
+/* =================== */
+/* Шапка сайта        */
+/* =================== */
+header {
+    background: linear-gradient(135deg, #1a1a2e, #2a2a44);
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.container {
+    max-width: 896px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.header-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.header-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+    filter: drop-shadow(0 0 5px #ff6f61);
+}
+
+.header-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ff6f61;
+    text-shadow: 0 0 5px #ff9f45;
+    animation: fireGlow 1.5s infinite;
+}
+
+@keyframes fireGlow {
+    0%, 100% { text-shadow: 0 0 5px #ff9f45; }
+    50%      { text-shadow: 0 0 10px #ff6f61; }
+}
+
+header p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+header a {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #ff6f61;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+header a:hover {
+    background: #ff9f45;
+}
+
+/* =================== */
+/* Заголовки секций   */
+/* =================== */
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ff6f61;
+    transition: width 0.3s, left 0.3s;
+}
+
+h2:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* =================== */
+/* Секция "Обо мне"   */
+/* =================== */
+#about {
+    padding: 3rem 1rem;
+    color: #e5e5e5;
+}
+
+#about p {
+    font-size: 1rem;
+    line-height: 1.6;
+    background: rgba(26, 26, 46, 0.8);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+/* Статистика */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.stats div {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.stats span {
+    display: block;
+    font-size: 4rem;
+    color: #ff6f61;
+    font-weight: 600;
+}
+
+/* =================== */
+/* Секция "Проекты"   */
+/* =================== */
+#projects {
+    padding: 3rem 1rem;
+    background: rgba(42, 42, 68, 0.8);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-card {
+    background: #2e2e4e;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(255, 111, 97, 0.5);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    will-change: transform, box-shadow;
+    padding: 1.5rem;
+    color: #e5e5e5;
+    min-height: 400px;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(255, 159, 69, 0.7);
+    filter: hue-rotate(10deg);
+}
+
+.project-image {
+    width: 100%;
+    height: 250px;
+    object-fit: fill;
+    background: #1a1a2e;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 2px solid #ff6f61;
+    transition: transform 0.3s;
+}
+
+.service-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.service-card a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #ff6f61;
+    color: #fff;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.service-card a:hover {
+    background: #ff9f45;
+    animation: pulse 0.5s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =================== */
+/* Секция "Отзывы"     */
+/* =================== */
+#reviews {
+    padding: 3rem 1rem;
+    color: #e5e5e5;
+}
+
+#reviews h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.review {
+    background: rgba(26, 26, 46, 0.8);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.review p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.review span {
+    display: block;
+    margin-top: 0.5rem;
+    color: #ff6f61;
+    font-style: italic;
+}
+
+/* =================== */
+/* Футер               */
+/* =================== */
+footer {
+    background: #1a1a2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+footer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+footer p a {
+    color: #2a9d8f;
+    text-decoration: none;
+}
+
+footer p a:hover {
+    text-decoration: underline;
+    color: #ff6f61;
+}
+
+footer div {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+footer div a {
+    color: #2a9d8f;
+    text-decoration: none;
+}
+
+footer div a:hover {
+    color: #ff6f61;
+}
